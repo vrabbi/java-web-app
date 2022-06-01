@@ -15,6 +15,9 @@ accelerator:
     defaultValue: dev.local
     required: true
 
+  imports:
+  - name: tap-initialize
+
 engine:
   merge:
   - include: [ "**/*" ]
@@ -43,3 +46,5 @@ engine:
         with: "#artifactId"
     - type: RewritePath
       rewriteTo: "#filename"
+  - type: InvokeFragment
+    reference: tap-initialize
