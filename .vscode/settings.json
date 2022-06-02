@@ -1,0 +1,4 @@
+{
+  "tanzu.sourceImage": "registry.local:5000/source-code",
+  "java.server.launchMode": "Standard"
+}
