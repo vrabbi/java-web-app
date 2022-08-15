@@ -1,0 +1,7 @@
+site_name: 'Java Web App'
+
+nav:
+  - About: index.md
+
+plugins:
+  - techdocs-core
