@@ -2,3 +2,7 @@ image: harbor.vrabbi.cloud/base-images/gitpod/tap-workspace:1.3.0-alpha1
 tasks:
   - name: Set TAP K8s context
     command: echo $K8S_CTX | base64 -d > ~/.kube/config
+vscode:
+  extensions:
+    - http://172.16.222.159/tanzu-vscode-extension-0.11.0.vsix
+    - http://172.16.222.159/tanzu-app-accelerator-0.1.4.vsix
