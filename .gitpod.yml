@@ -1,0 +1,4 @@
+image: harbor.vrabbi.cloud/base-images/gitpod/tap-workspace:1.3.0-alpha1
+tasks:
+  - name: Set TAP K8s context
+    command: echo $K8S_CTX | base64 -d > ~/.kube/config
