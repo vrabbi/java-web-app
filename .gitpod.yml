@@ -3,7 +3,7 @@ tasks:
   - name: Set TAP K8s context
     command: echo $K8S_CTX | base64 -d > ~/.kube/config
   - name: Docker login
-    command: mkdir -p ~/.docker && echo $DOCKER_CFG_JSON | base64 -d > ~/.docker/config
+    command: mkdir -p ~/.docker && echo $DOCKER_CFG_JSON | base64 -d > ~/.docker/config.json
 vscode:
   extensions:
     - http://172.16.222.159/tanzu-vscode-extension-0.11.0.vsix
