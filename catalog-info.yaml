@@ -20,7 +20,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: demo-app
+  name: server-side-ui-starter
   description: Java Web App
   tags:
     - app-accelerator
@@ -29,7 +29,7 @@ metadata:
     - web
     - tanzu
   annotations:
-    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=demo-app'
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=server-side-ui-starter'
     'backstage.io/techdocs-ref': dir:.
 spec:
   type: service
