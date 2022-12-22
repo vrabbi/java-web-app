@@ -20,7 +20,8 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ns1/petclinic
+  name: petclinic
+  namespace: ns1
   description: Spring Petclinic Demo App
   tags:
     - app-accelerator
@@ -32,12 +33,12 @@ metadata:
     'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=petclinic'
     'backstage.io/techdocs-ref': dir:.
 spec:
-  system: ns1/pet-clinics
+  system: pet-clinics
   providesApis: 
-    - ns1/petclinic-lab.vrabbi.cloud
+    - petclinic-lab.vrabbi.cloud
   type: service
   lifecycle: experimental
-  owner: ns1/team-petclinic
+  owner: team-petclinic
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
