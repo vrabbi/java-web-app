@@ -1,3 +1,3 @@
-# Java Web App
+# Spring Pet Clinic Demo App
 
-This is a sample doc for the default Tanzu Java Web App Accelerator
+This is a sample doc for the Spring Petclinic Demo App
