@@ -11,8 +11,29 @@ spec:
   - name: annotations
     value:
       autoscaling.knative.dev/minScale: "1"
+  - name: testing_pipeline_matching_labels
+    value:
+      apps.tanzu.vmware.com/pipeline: jenkins-pipeline
+  - name: testing_pipeline_params
+    value:
+      job-name: jenkins-job
+      job-params:
+      - name: GIT-URL
+        value: git@git-server-fqdn:/org-or-project-or-user-name/repo-name.git
+      - name: GIT-BRANCH
+        value: main
+      - name: runtimeVersion
+        value: java
+      - name: projname
+        value: tanzu-java-web-app
+      secret-name: my-secret
+  - name: buildServiceBindings
+    value:
+    - name: settings-xml
+      kind: Secret
+      apiVersion: v1
   source:
     git:
-      url: https://github.com/vrabbi/java-web-app
+      url: https://git-server-fqdn/org-or-project-or-user-name/repo-name
       ref:
         branch: main
