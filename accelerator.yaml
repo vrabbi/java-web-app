@@ -14,13 +14,17 @@ accelerator:
     label: Prefix for the container image repository
     defaultValue: dev.local
     required: true
-  - name: gitRepoName
+  - name: gitServer
     inputType: text
-    label: Git Repository Name
-    required: true
+    label: Git Server
+    display: false
   - name: gitOrgName
     inputType: text
     label: Gitlab Project Name
+    required: true
+  - name: gitRepoName
+    inputType: text
+    label: Git Repository Name
     required: true
 
 engine:
@@ -39,9 +43,9 @@ engine:
         with: "#repositoryPrefix"
     - type: ReplaceText
       substitutions:
-      #- text: git-server-fqdn
-      #  with: 'gitlab.com'
-      - text: org-or-project-or-user
+      - text: git-server-fqdn
+        with: '#gitServer'
+      - text: org-or-project-or-user-name
         with: "#gitOrgName"
       - text: repo-name
         with: "#gitRepoName"
