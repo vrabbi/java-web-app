@@ -40,7 +40,7 @@ engine:
     - type: ReplaceText
       substitutions:
       - text: git-server-fqdn
-        with: "gitlab.com"
+        with: 'gitlab.com'
       - text: org-or-project-or-user
         with: "#gitOrgName"
       - text: repo-name
