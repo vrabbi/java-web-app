@@ -17,7 +17,6 @@ accelerator:
   - name: gitServer
     inputType: select
     label: Git Server
-    defaultValue: gitlab.com
     choices:
       - text: gitlab.com
         value: gitlab.com
@@ -30,6 +29,17 @@ accelerator:
     inputType: text
     label: Git Repository Name
     required: true
+  - name: gitBranch
+    inputType: choice
+    label: Git Branch
+    choices:
+      - text: main
+        value: main
+      - text: master
+        value: master
+      - text: dev
+        value: dev
+    defaultValue: main
 
 engine:
   merge:
