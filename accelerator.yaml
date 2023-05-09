@@ -14,11 +14,11 @@ accelerator:
     label: Prefix for the container image repository
     defaultValue: dev.local
     required: true
-  - name: repoName
+  - name: gitRepoName
     inputType: text
     label: Git Repository Name
     required: true
-  - name: orgName
+  - name: gitOrgName
     inputType: text
     label: Gitlab Project Name
     required: true
@@ -44,7 +44,7 @@ engine:
       - text: org-or-project-or-user
         with: "#gitOrgName"
       - text: repo-name
-        with: "#repoName"
+        with: "#gitRepoName"
   - include: [ "README.md" ]
     chain:
     - type: ReplaceText
