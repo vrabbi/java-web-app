@@ -11,8 +11,8 @@ accelerator:
   options:
   - name: repositoryPrefix
     inputType: text
-    label: Prefix for the container image repository
-    defaultValue: dev.local
+    label: Prefix for the iterative development code bundle in the container registry
+    defaultValue: harbor.vrabbi.cloud/tap-inner-loop
     required: true
   - name: gitServer
     inputType: select
@@ -63,6 +63,8 @@ engine:
         with: "#gitOrgName"
       - text: repo-name
         with: "#gitRepoName"
+      - text: main
+        with: "#gitBranch"
   - include: [ "README.md" ]
     chain:
     - type: ReplaceText
