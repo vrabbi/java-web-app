@@ -30,7 +30,7 @@ accelerator:
     label: Git Repository Name
     required: true
   - name: gitBranch
-    inputType: choice
+    inputType: select
     label: Git Branch
     choices:
       - text: main
