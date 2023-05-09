@@ -18,6 +18,7 @@ accelerator:
     inputType: text
     label: Git Server
     display: false
+    defaultValue: gitlab.com
   - name: gitOrgName
     inputType: text
     label: Gitlab Project Name
