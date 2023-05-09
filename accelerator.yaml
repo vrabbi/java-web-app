@@ -14,6 +14,14 @@ accelerator:
     label: Prefix for the container image repository
     defaultValue: dev.local
     required: true
+  - name: repoName
+    inputType: text
+    label: Git Repository Name
+    required: true
+  - name: orgName
+    inputType: text
+    label: Gitlab Project Name
+    required: true
 
 engine:
   merge:
@@ -29,6 +37,14 @@ engine:
       substitutions:
       - text: your-registry.io/project
         with: "#repositoryPrefix"
+    - type: ReplaceText
+      substitutions:
+      - text: git-server-fqdn
+        with: gitlab.com
+      - text: org-or-project-or-user
+        with: "#gitOrgName"
+      - text: repo-name
+        with: "#repoName"
   - include: [ "README.md" ]
     chain:
     - type: ReplaceText
