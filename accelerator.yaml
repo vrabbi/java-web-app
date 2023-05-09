@@ -15,9 +15,12 @@ accelerator:
     defaultValue: dev.local
     required: true
   - name: gitServer
-    inputType: text
+    inputType: select
     label: Git Server
-    display: false
+    defaultValue: gitlab.com
+    choices:
+      - text: gitlab.com
+        value: gitlab.com
     defaultValue: gitlab.com
   - name: gitOrgName
     inputType: text
