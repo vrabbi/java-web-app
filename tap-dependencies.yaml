@@ -15,15 +15,15 @@ devDependencies:
   mappings:
     - source:
         kind: Secret
-        name: psql-creds
-        key:  password
+        name: psql-postgresql
+        key:  postgres-password
       target:
         type: envVar
         name: SAMPLE_PASSWORD
     - source:
         kind: Secret
-        name: psql-creds
-        key:  url
+        name: psql-postgresql
+        key:  postgres-password
       target:
         type: file
-        path: /tmp/db-url
+        path: /tmp/db-pass
