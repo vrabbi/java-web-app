@@ -1,0 +1,29 @@
+devDependencies:
+- name: foo
+  commands:
+    linux: |
+      #!/bin/bash
+      helm repo add bitnami https://charts.bitnami/com/charts
+      helm install psql bitnami/postgresql --namespace devpod-${USER}
+    windows: |
+      helm repo add bitnami https://charts.bitnami/com/charts
+      helm install psql bitnami/postgresql --namespace devpod-$env:USERNAME
+    mac: |
+      #!/bin/bash
+      helm repo add bitnami https://charts.bitnami/com/charts
+      helm install psql bitnami/postgresql --namespace devpod-${USER}
+  mappings:
+    - source:
+        kind: Secret
+        name: psql-creds
+        key:  password
+      target:
+        type: envVar
+        name: SAMPLE_PASSWORD
+    - source:
+        kind: Secret
+        name: psql-creds
+        key:  url
+      target:
+        type: file
+        path: /tmp/db-url
