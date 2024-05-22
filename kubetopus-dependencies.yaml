@@ -5,23 +5,23 @@ devDependencies:
       linux: |
         #!/bin/bash
         helm repo add bitnami https://charts.bitnami.com/bitnami
-        helm install psql bitnami/postgresql --namespace devpod-${USER}
+        helm install psql bitnami/postgresql --namespace $KUBETOPUS_NAMESPACE
       windows: |
         helm repo add bitnami https://charts.bitnami.com/bitnami
-        helm install psql bitnami/postgresql --namespace devpod-$env:USERNAME
+        helm install psql bitnami/postgresql --namespace $env:KUBETOPUS_NAMESPACE
       mac: |
         #!/bin/bash
         helm repo add bitnami https://charts.bitnami.com/bitnami
-        helm install psql bitnami/postgresql --namespace devpod-${USER}
+        helm install psql bitnami/postgresql --namespace $KUBETOPUS_NAMESPACE
     delete:
       linux: |
         #!/bin/bash
-        helm uninstall psql --namespace devpod-${USER}
+        helm uninstall psql --namespace $KUBETOPUS_NAMESPACE
       windows: |
-        helm uninstall psql --namespace devpod-$env:USERNAME
+        helm uninstall psql --namespace devpod-$env:KUBETOPUS_NAMESPACE
       mac: |
         #!/bin/bash
-        helm uninstall psql --namespace devpod-${USER}
+        helm uninstall psql --namespace $KUBETOPUS_NAMESPACE
   mappings:
     - source:
         kind: Secret
