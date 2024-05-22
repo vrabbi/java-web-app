@@ -1,17 +1,27 @@
 devDependencies:
 - name: foo
   commands:
-    linux: |
-      #!/bin/bash
-      helm repo add bitnami https://charts.bitnami/com/charts
-      helm install psql bitnami/postgresql --namespace devpod-${USER}
-    windows: |
-      helm repo add bitnami https://charts.bitnami/com/charts
-      helm install psql bitnami/postgresql --namespace devpod-$env:USERNAME
-    mac: |
-      #!/bin/bash
-      helm repo add bitnami https://charts.bitnami/com/charts
-      helm install psql bitnami/postgresql --namespace devpod-${USER}
+    install:
+      linux: |
+        #!/bin/bash
+        helm repo add bitnami https://charts.bitnami/com/charts
+        helm install psql bitnami/postgresql --namespace devpod-${USER}
+      windows: |
+        helm repo add bitnami https://charts.bitnami/com/charts
+        helm install psql bitnami/postgresql --namespace devpod-$env:USERNAME
+      mac: |
+        #!/bin/bash
+        helm repo add bitnami https://charts.bitnami/com/charts
+        helm install psql bitnami/postgresql --namespace devpod-${USER}
+    delete:
+      linux: |
+        #!/bin/bash
+        helm uninstall psql --namespace devpod-${USER}
+      windows: |
+        helm uninstall psql --namespace devpod-$env:USERNAME
+      mac: |
+        #!/bin/bash
+        helm uninstall psql --namespace devpod-${USER}
   mappings:
     - source:
         kind: Secret
