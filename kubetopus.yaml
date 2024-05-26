@@ -5,14 +5,14 @@ devDependencies:
       linux: |
         #!/bin/bash
         helm repo add bitnami https://charts.bitnami.com/bitnami
-        helm install psql bitnami/postgresql --namespace $KUBETOPUS_NAMESPACE
+        helm upgrade --install psql bitnami/postgresql --namespace $KUBETOPUS_NAMESPACE --create-namespace --set serviceBindings.enabled=true
       windows: |
         helm repo add bitnami https://charts.bitnami.com/bitnami
-        helm install psql bitnami/postgresql --namespace $env:KUBETOPUS_NAMESPACE
+        helm upgrade --install psql bitnami/postgresql --namespace $env:KUBETOPUS_NAMESPACE --create-namespace --set serviceBindings.enabled=true
       mac: |
         #!/bin/bash
         helm repo add bitnami https://charts.bitnami.com/bitnami
-        helm install psql bitnami/postgresql --namespace $KUBETOPUS_NAMESPACE
+        helm upgrade --install psql bitnami/postgresql --namespace $KUBETOPUS_NAMESPACE --create-namespace --set serviceBindings.enabled=true
     delete:
       linux: |
         #!/bin/bash
@@ -26,14 +26,22 @@ devDependencies:
     - source:
         kind: Secret
         name: psql-postgresql
-        key:  postgres-password
+        keys:
+        - postgres-password
       target:
         type: envVar
         name: SAMPLE_PASSWORD
     - source:
         kind: Secret
         name: psql-postgresql
-        key:  postgres-password
+        keys:
+        - postgres-password
       target:
         type: file
         path: /tmp/db-pass
+    - source:
+        kind: Secret
+        name: psql-postgresql-svcbind-postgres
+      target:
+        type: serviceBinding
+        name: psql-demo
