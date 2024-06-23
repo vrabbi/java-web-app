@@ -1,0 +1,3 @@
+apiVersion: test.terasky.com/v1alpha1 kind: Database metadata:
+  name: test2
+spec: {"size":"small","name":"test2","repoUrl":"github.com?owner=vrabbi&repo=java-web-app"}
