@@ -1,0 +1,3 @@
+apiVersion: test.terasky.com/v1alpha1 kind: Database metadata:
+  name: test
+spec: [object Object]
